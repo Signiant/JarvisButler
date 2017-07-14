@@ -46,6 +46,16 @@
             "Resource": [
                 "*"
             ]
+        },
+        {
+            "Sid": "SNS",
+            "Effect": "Allow",
+            "Action": [
+                "sns:*"
+            ],
+            "Resource": [
+                "*"
+            ]
         }
     ]
 }
