@@ -29,10 +29,6 @@ def _formparams_to_dict(s1):
     return retval
 
 def lambda_handler(event, context):
-    
-    #config file
-    pprint.pprint(config)
-
     # Lambda entry point
     param_map = _formparams_to_dict(event['formparams'])
     text = param_map['text'].split('+')
@@ -63,9 +59,9 @@ def lambda_handler(event, context):
             awsSecretKey = None
             awsSessionToken = None
             session = boto3.session.Session(aws_access_key_id=awsKeyId,aws_secret_access_key=awsSecretKey,aws_session_token=awsSessionToken)
-            client = session.client("sns", region_name=config["general"]["region"])
+            client = session.client("sns", region_name=config["General"]["region"])
             response = client.publish(
-                TopicArn=config["general"]["JarvisButler_arn"],
+                TopicArn=config["General"]["JarvisButler_arn"],
                 Message=str(event)
             )
         except Exception as e:
