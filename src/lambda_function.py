@@ -4,6 +4,7 @@ import requests
 import urllib
 import json
 import boto3
+import pprint
 
 
 with open(os.path.join(os.path.dirname(__file__), 'SLACK_TEAM_TOKEN')) as f:
